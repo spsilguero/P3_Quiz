@@ -246,11 +246,11 @@ exports.playCmd = rl => {
           }else{
             log(` ${colorize('incorrect', 'red')}`);
             log(` Fin `);
-            log(` Puntuacion: ${score} `);
+            return log(` Puntuacion: ${score} `);
           }
         });
 
-      })
+      });
     }
 
   };
