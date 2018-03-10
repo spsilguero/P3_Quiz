@@ -224,7 +224,7 @@ exports.playCmd = rl => {
    const playOne = () => {
 
     if (toBeResolved.length === 0) {
-      log(" No hay nada que responder");
+      log(" No hay nada que responder. Fin.");
       log(` Puntuacion: ${score} `);
       rl.prompt();
     } else{
@@ -240,12 +240,12 @@ exports.playCmd = rl => {
           a = a.toLowerCase().trim();
           if (a === quiz.answer.toLowerCase()) {
             score++;
-            log(` Respuesta ${colorize('correcta', 'green')}`);
+            log(` ${colorize('correct', 'green')}`);
             log(` Puntuacion: ${score} `);
             playOne();
           }else{
-            log(` Respuesta ${colorize('incorrecta', 'red')}`);
-            log(` Fin del juego `);
+            log(` ${colorize('incorrect', 'red')}`);
+            log(` Fin `);
             log(` Puntuacion: ${score} `);
           }
         });
@@ -258,7 +258,6 @@ exports.playCmd = rl => {
 
   models.quiz.findAll()
   .each(quiz => {
-    log(` IDS: ${quiz.id} `);
     toBeResolved.push(quiz.id);
   })
   .then(() =>{ 
