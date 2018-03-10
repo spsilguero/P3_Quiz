@@ -246,7 +246,8 @@ exports.playCmd = rl => {
           }else{
             log(` ${colorize('incorrect', 'red')}`);
             log(` Fin `);
-            return log(` Puntuacion: ${score} `);
+            log(` Puntuacion: ${score} `);
+            rl.prompt();
           }
         });
 
