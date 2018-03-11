@@ -224,8 +224,9 @@ exports.playCmd = rl => {
    const playOne = () => {
 
     if (toBeResolved.length === 0) {
-      log(" No hay nada que responder. Fin.");
-      log(` Puntuacion: ${score} `);
+      console.log(` No hay nada que responder. Fin. Puntuacion: ${score}`);
+      //log(" No hay nada que responder. Fin.");
+      //log(` Puntuacion: ${score} `);
       rl.prompt();
     } else{
 
@@ -240,13 +241,15 @@ exports.playCmd = rl => {
           a = a.toLowerCase().trim();
           if (a === quiz.answer.toLowerCase()) {
             score++;
-            log(` ${colorize('correct', 'green')}`);
-            log(` Puntuacion: ${score} `);
+            console.log(` Respuesta correcta. Puntuacion: ${score}`);
+            //log(` ${colorize('correct', 'green')}`);
+            //log(` Puntuacion: ${score} `);
             playOne();
           }else{
-            log(` ${colorize('incorrect', 'red')}`);
-            log(` Fin `);
-            log(` Puntuacion: ${score} `);
+            console.log(` Respuesta incorrecta. Fin del juego. Puntuacion: ${score}`);
+            //log(` ${colorize('incorrect', 'red')}`);
+            //log(` Fin `);
+            //log(` Puntuacion: ${score} `);
             rl.prompt();
           }
         });
