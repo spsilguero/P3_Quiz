@@ -205,7 +205,7 @@ exports.testCmd = (rl, id) => {
     });
   })
   .catch(error => {
-    console.log(error.message);
+    console.log(` Error: ${error.message}`);
     //errorlog(error.message);
   })
   .then(() => {
