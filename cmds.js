@@ -205,12 +205,12 @@ exports.testCmd = (rl, id) => {
     });
   })
   .catch(error => {
-    console.log(` Error: ${error.message}`);
-    //errorlog(error.message);
+    errorlog(error.message);
   })
   .then(() => {
     rl.prompt();
   });
+
 
 };
 
@@ -225,9 +225,8 @@ exports.playCmd = rl => {
    const playOne = () => {
 
     if (toBeResolved.length === 0) {
-      console.log(` No hay nada que responder. Fin. Puntuacion: ${score}`);
-      //log(" No hay nada que responder. Fin.");
-      //log(` Puntuacion: ${score} `);
+      log(" No hay nada que responder");
+      log(` Puntuacion: ${score} `);
       rl.prompt();
     } else{
 
@@ -242,23 +241,20 @@ exports.playCmd = rl => {
           a = a.toLowerCase().trim();
           if (a === quiz.answer.toLowerCase()) {
             score++;
-            console.log(` Respuesta correcta. Puntuacion: ${score}`);
-            //log(` ${colorize('correct', 'green')}`);
-            //log(` Puntuacion: ${score} `);
+            log(` Respuesta ${colorize('correcta', 'green')}`);
+            log(` Puntuacion: ${score} `);
             playOne();
           }else{
-            console.log(` Respuesta incorrecta. Fin del juego. Puntuacion: ${score}`);
-            //log(` ${colorize('incorrect', 'red')}`);
-            //log(` Fin `);
-            //log(` Puntuacion: ${score} `);
-            rl.prompt();
+            log(` Respuesta ${colorize('incorrecta', 'red')}`);
+            log(` Fin del juego `);
+            log(` Puntuacion: ${score} `);
           }
         });
 
-      });
+      })
     }
 
-  };
+};
 
 
   models.quiz.findAll()
